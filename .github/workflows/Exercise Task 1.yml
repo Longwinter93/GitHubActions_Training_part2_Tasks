@@ -8,16 +8,16 @@ on:
     paths-ignore:
       - '.github/workflows/*'
 jobs:
-  deploy:
+  TestAndDeploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Output event data
-        run: echo "${{ toJSON(github.event) }}"
-      - name: Get code
+      - name: Output Event Data
+        run: echo "$ {{ toJSON(github.event) }}"
+      - name: Get Code
         uses: actions/checkout@v3
       - name: Install dependencies
         run: npm ci
-      - name: Test code
+      - name: Test Code
         run: npm run test
       - name: Build code
         run: npm run build
